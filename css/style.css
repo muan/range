@@ -44,6 +44,10 @@ a { color: #c55; text-decoration: none; }
   position: relative;
 }
 
+.dot:hover:after {
+  background: #08c;
+}
+
 .dot:before {
   margin: auto;
   content: "";

@@ -28,7 +28,7 @@ function guess (number, role) {
   write(role + ' guessed ' + number)
   if(number == window.answer) {
     $('.dot[data-number='+ window.answer + ']').addClass('boom')
-    write('boom!!!!! ' + role + ' lost!')
+    write('boom!!! the answer is ' + window.answer + ', ' + role + ' lost!')
     $('.range').addClass('game-ended')
   } else if (number < window.answer) {
     $('.dot').filter(function(_, e) {
