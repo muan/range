@@ -10,14 +10,17 @@ function begin() {
 }
 
 $(document).on('click', '.dot', function() {
+  if($('.range.game-ended, .range.guessing').length > 0) return
   number = parseInt($(this).data('number'), 10)
   guess(number, 'you')
 })
 
 function hubotGuess () {
+  $('.range').addClass('guessing')
   setTimeout(function() {
     number = parseInt( $('.dot').eq(parseInt((Math.random()*100, 10)%($('.dot').length - 1)) + 1).data('number'), 10)
     guess(number, 'bot')
+    $('.range').removeClass('guessing')
   }, 1000)
 }
 
@@ -26,6 +29,7 @@ function guess (number, role) {
   if(number == window.answer) {
     $('.dot[data-number='+ window.answer + ']').addClass('boom')
     write('boom!!!!! ' + role + ' lost!')
+    $('.range').addClass('game-ended')
   } else if (number < window.answer) {
     $('.dot').filter(function(_, e) {
       return parseInt($(e).data('number'), 10) < number

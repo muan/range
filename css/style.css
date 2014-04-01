@@ -75,3 +75,7 @@ a { color: #c55; text-decoration: none; }
 .dot.boom:after {
   background: red;
 }
+
+.guessing {
+  opacity: 0.5;
+}
