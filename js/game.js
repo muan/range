@@ -32,13 +32,13 @@ function guess (number, role) {
     $('.range').addClass('game-ended')
   } else if (number < window.answer) {
     $('.dot').filter(function(_, e) {
-      return parseInt($(e).data('number'), 10) < number
+      return parseInt($(e).data('number') - 1, 10) < number
     }).remove()
 
     logRange()
   } else {
     $('.dot').filter(function(_,e) {
-      return parseInt($(e).data('number'), 10) > number
+      return parseInt($(e).data('number') + 1, 10) > number
     }).remove()
     logRange()
   }
