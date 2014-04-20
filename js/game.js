@@ -34,12 +34,13 @@ function guess (number, role) {
     $('.dot').filter(function(_, e) {
       return parseInt($(e).data('number') - 1, 10) < number
     }).remove()
-
+    if($('.dot').length == 1) guess($('.dot').data('number'), (role == 'bot' ? 'you' : 'bot'))
     logRange()
   } else {
     $('.dot').filter(function(_,e) {
       return parseInt($(e).data('number') + 1, 10) > number
     }).remove()
+    if($('.dot').length == 1) guess($('.dot').data('number'), (role == 'bot' ? 'you' : 'bot'))
     logRange()
   }
   if( role != 'bot' && number != window.answer ) {
